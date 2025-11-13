@@ -7,7 +7,7 @@
     "test:clean": "rmdir /s /q test-results 2>nul & playwright test"
   },
   "keywords": [],
-  "author": "",
+  "author": "Adi Bines",
   "license": "ISC",
   "description": "",
   "devDependencies": {
