@@ -9,8 +9,8 @@ jobs:
     timeout-minutes: 60
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
-    - uses: actions/setup-node@v4
+    - uses: actions/checkout@v3
+    - uses: actions/setup-node@v3
       with:
         node-version: lts/*
     - name: Install dependencies
@@ -19,7 +19,14 @@ jobs:
       run: npx playwright install --with-deps
     - name: Run Playwright tests
       run: npx playwright test
-    - uses: actions/upload-artifact@v4
+      env: 
+        STANDARD_USER: ${{vars.STANDARD_USER}}
+        LOCKED_OUT_USER: ${{vars.LOCKED_OUT_USER}}
+        PROBLEM_USER: ${{vars.PROBLEM_USER}}
+        PERFORMANCE_GLITCH_USER: ${{vars.PERFORMANCE_GLITCH_USER}}
+        CORRECT_PASSWORD: ${{vars.CORRECT_PASSWORD}}
+
+    - uses: actions/upload-artifact@v3
       if: ${{ !cancelled() }}
       with:
         name: playwright-report

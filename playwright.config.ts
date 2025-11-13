@@ -5,6 +5,8 @@ import { defineConfig, devices } from '@playwright/test';
  * https://github.com/motdotla/dotenv
  */
 // import dotenv from 'dotenv';
+import 'dotenv/config'
+
 // import path from 'path';
 // dotenv.config({ path: path.resolve(__dirname, '.env') });
 
